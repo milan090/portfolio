@@ -4,7 +4,7 @@ import React from 'react'
 
 export const Sidebar = () => {
   return (
-    <div className="absolute flex h-full w-52 flex-col justify-between bg-slate-100">
+    <div className="fixed flex h-full w-52 flex-col justify-between bg-slate-100">
       <div className="mt-5 flex flex-col items-center justify-center">
         <Image
           src="/img/Logo.jpg"
