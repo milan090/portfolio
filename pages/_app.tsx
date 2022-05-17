@@ -4,6 +4,8 @@ import { Loading } from '../components/Loading'
 import { Sidebar } from '../components/Sidebar'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { SEO } from '../utils/seo'
+import { DefaultSeo } from 'next-seo'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -28,6 +30,37 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="dark">
+      <DefaultSeo
+        title={pageProps?.seo?.title || SEO.DEFAULT_TITLE}
+        titleTemplate={SEO.DEFAULT_TITLE_TEMPLATE}
+        description={SEO.DEFAULT_DESCRIPTION}
+        // canonical={url}
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          // url,
+          site_name: SEO.SITE_NAME,
+          title: SEO.SITE_NAME,
+          description: SEO.DEFAULT_DESCRIPTION,
+          images: [
+            {
+              url: SEO.DEFAULT_OG_IMAGE,
+              alt: SEO.SITE_NAME,
+            },
+          ],
+        }}
+        twitter={{
+          handle: SEO.TWITTER_HANDLE,
+          site: SEO.TWITTER_HANDLE,
+          cardType: 'summary_large_image',
+        }}
+        additionalLinkTags={[
+          {
+            rel: 'shortcut icon',
+            href: SEO.FAVICON_LINK,
+          },
+        ]}
+      />
       <div className="dark:text-slate-50">
         <Sidebar />
         <div className="ml-52">
