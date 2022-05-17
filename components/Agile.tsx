@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 const steps = [
   {
@@ -22,14 +22,15 @@ const steps = [
   },
 ]
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
+const container: Variants = {
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    scale: 1,
+
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.075,
+      duration: 2,
+      delayChildren: 4,
+      staggerChildren: 0.1,
     },
   },
 }
@@ -39,14 +40,8 @@ const item = {
   visible: {
     y: 0,
     opacity: 1,
-  },
-  hover: {
-    // y: -5,
-    // scale: 1.2,
-    borderRadius: '100%',
     transition: {
-      duration: 0.2,
-      // staggerChildren: 0.5,
+      duration: 1,
     },
   },
 }
@@ -69,14 +64,11 @@ type CardProps = {
 }
 
 const Card: React.FC<CardProps> = ({ name }) => {
-  const [hover, setHover] = React.useState(false)
   return (
     <motion.li
       className="flex h-32 w-32 cursor-pointer items-center justify-center rounded-3xl bg-slate-100"
       variants={item}
-      animate={hover ? 'hover' : 'visible'}
-      onHoverEnd={(e) => setHover(false)}
-      onHoverStart={() => setHover(true)}
+      whileHover={{ scale: 1.1 }}
     >
       <h4 className="text-lg font-medium text-slate-900">{name}</h4>
     </motion.li>
