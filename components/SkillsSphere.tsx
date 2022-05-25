@@ -37,7 +37,9 @@ const textTags = [
   'Digital Marketing',
   'AWS',
   'Solidity',
-  'HardHat',
+  "ThreeJS",
+  "OpenGL",
+  "GLSL"
 ]
 
 const tags = shuffleArray(imageTags.concat(textTags))

@@ -4,17 +4,21 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'
 
-const animate = { x: [-208, 0] }
-const transition: Transition = { delay: 4.5 }
+const variants = {
+  visible: {x: 0},
+  hidden: {x:-208}
+}
+const transition: Transition = { delay: 4.5, duration: 1 }
 
 export const Sidebar = () => {
   const router = useRouter()
   const isHome = router.asPath === '/'
-  console.log('isHome:', isHome)
 
   return (
     <motion.div
-      animate={isHome && animate}
+      initial={"hidden"}
+      variants={variants}
+      animate={isHome && "visible"}
       transition={isHome ? transition : {}}
       className="fixed flex h-full w-52 flex-col bg-slate-100"
     >
@@ -35,7 +39,7 @@ export const Sidebar = () => {
       </div>
       <div className="mt-32 mb-20 flex flex-col items-center gap-2 text-slate-800">
         {/* <NavLink href="/about">About</NavLink> */}
-        <NavLink href="/skills">Skills</NavLink>
+        <NavLink href="#skills">Skills</NavLink>
       </div>
     </motion.div>
   )

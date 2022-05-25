@@ -62,10 +62,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         ]}
       />
-      <div className="dark:text-slate-50">
+      <div className=" dark:text-slate-50">
         <Sidebar />
+
         <div className="ml-52">
-          {loading ? <Loading /> : <Component {...pageProps} />}
+          {loading ? (
+            <Loading />
+          ) : (
+            // ts-ignor
+            <Component {...pageProps} />
+          )}
         </div>
       </div>
     </div>
