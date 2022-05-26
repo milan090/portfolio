@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 export const Loading = () => {
   return (
-    <div className="z-auto flex h-screen w-full flex-col items-center justify-center bg-slate-800">
+    <div className="flex h-screen w-full flex-col items-center justify-center bg-slate-800 fixed" style={{zIndex: 10000}}>
       <div className="w-32">
         <LogoAnimated />
       </div>

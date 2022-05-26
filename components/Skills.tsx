@@ -16,10 +16,10 @@ const titleVariants: Variants = {
 
 const contentVariants: Variants = {
   visible: { y: 0 },
-  hidden: { y: -200 },
+  hidden: { y: -300 },
 }
 
-const transition: Transition = { delay: 0.5, duration: 1.33, ease: 'easeInOut' }
+const transition: Transition = { delay: 0, duration: 1.33, ease: 'easeInOut' }
 
 const sphereVariants = {
   visible: {
@@ -41,9 +41,10 @@ export const Skills = () => {
   }, [control, inView])
 
   return (
-    <div className="mx-20 flex min-h-screen items-center justify-around">
-      <div className="max-w-lg pb-32">
+    <div className="mx-20 flex min-h-screen items-center justify-around" id="skills">
+      <div className="max-w-lg pb-32" >
         {/* <p className="font-mono text-primary-600">Hi, my name is</p> */}
+
         <div
           className="h-20 overflow-hidden text-6xl font-bold capitalize"
           ref={ref}
@@ -53,8 +54,7 @@ export const Skills = () => {
             initial="hidden"
             animate={control}
             transition={transition}
-            className="text-slate-200"
-            id="skills"
+            className="text-primary-500"
           >
             My Skills
           </motion.h1>

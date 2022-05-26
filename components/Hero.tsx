@@ -1,62 +1,87 @@
 import React from 'react'
 import { Agile } from './Agile'
-import { motion, Variant, Variants } from 'framer-motion'
+import { motion, Transition, Variants } from 'framer-motion'
 import { WaveCanvas } from './Wave'
 
+import Typed from 'react-typed'
+
+const titleVariants: Variants = {
+  visible: {
+    y: 0,
+  },
+  hidden: {
+    y: 100,
+  },
+}
+
+const titleTransition: Transition = {
+  delay: 0.75,
+  duration: 1.3,
+  ease: 'easeInOut',
+}
+
+const contentVariants: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+}
+// opacity: [0, 0.5, 0.75, 1], y: [20, 0]
 export const Hero = () => {
   return (
-    <>
+    <div className="relative w-full">
       <div className="absolute -z-30 h-full w-full">
         <WaveCanvas />
       </div>
-      <div className="mx-20 pb-32 flex min-h-screen items-center justify-around">
+      <div className="mx-32 flex min-h-screen pt-72">
         <motion.div className="max-w-lg" initial={false}>
+          <p className="font-mono text-2xl text-primary-600">
+            <Typed strings={['Hey there! I am']} typeSpeed={36} />
+          </p>
+          <div className="text-6xl font-bold capitalize">
+            <div className="h-16 overflow-hidden ">
+              <motion.h1
+                initial="hidden"
+                variants={titleVariants}
+                animate="visible"
+                transition={{ ...titleTransition }}
+                className="text-slate-200"
+              >
+                Muhammed Milan
+              </motion.h1>
+            </div>
+            <div className="h-16 overflow-hidden ">
+              <motion.h1
+                variants={titleVariants}
+                initial="hidden"
+                animate="visible"
+                transition={titleTransition}
+                className="text-slate-400"
+              >
+                I create things
+              </motion.h1>
+            </div>
+            <div className="h-16 overflow-hidden ">
+              <motion.h1
+                variants={titleVariants}
+                initial="hidden"
+                animate="visible"
+                transition={titleTransition}
+                className="text-slate-400"
+              >
+                for the web
+              </motion.h1>
+            </div>
+          </div>
           <motion.p
-            animate={{
-              opacity: [0, 1],
-            }}
-            className="font-mono text-2xl text-primary-600"
-          >
-            Hi,
-            <motion.span
-              animate={{
-                opacity: [0, 1],
-                paddingLeft: [20, 0],
-              }}
-              transition={{
-                delay: 0.75,
-              }}
-            >
-              {' '}
-              my name is
-            </motion.span>
-          </motion.p>
-          <motion.div className="text-6xl font-bold capitalize">
-            <motion.h1
-              animate={{ opacity: [0, 1], y: [20, 0] }}
-              transition={{ delay: 1.25 }}
-              className="text-slate-200"
-            >
-              Muhammed Milan
-            </motion.h1>
-            <motion.h1
-              animate={{ opacity: [0, 1], y: [20, 0] }}
-              transition={{ delay: 2 }}
-              className="text-slate-400"
-            >
-              I create things
-            </motion.h1>
-            <motion.h1
-              animate={{ opacity: [0, 1], y: [20, 0] }}
-              transition={{ delay: 2.75 }}
-              className="text-slate-400"
-            >
-              for the web
-            </motion.h1>
-          </motion.div>
-          <motion.p
-            animate={{ opacity: [0, 0.5, 0.75, 1], y: [20, 0] }}
-            transition={{ delay: 3.5 }}
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 2.5, duration: 1 }}
             className="mt-4 ml-1 text-slate-400"
           >
             I'm a Full Stack Web Developer based in India. I specialize in agile
@@ -65,10 +90,8 @@ export const Hero = () => {
           </motion.p>
         </motion.div>
 
-        <div>
-          {/* <Agile /> */}
-        </div>
+        <div>{/* <Agile /> */}</div>
       </div>
-    </>
+    </div>
   )
 }

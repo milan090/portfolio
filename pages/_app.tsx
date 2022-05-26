@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { SEO } from '../utils/seo'
 import { DefaultSeo } from 'next-seo'
+import { Social } from '../components/Social'
+import { Toaster } from 'react-hot-toast'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -27,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', handleComplete)
       router.events.off('routeChangeError', handleComplete)
     }
-  })
+  }, [])
 
   return (
     <div className="dark">
@@ -62,10 +64,18 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         ]}
       />
-      <div className=" dark:text-slate-50">
+      <Toaster position='bottom-right' toastOptions={{
+        className: "bg-slate-700 text-slate-200",
+        style: {
+          background: "#334155",
+          color: "white"
+        }
+      }} />
+      <div className="dark:text-slate-700">
         <Sidebar />
+        <Social />
 
-        <div className="ml-52">
+        <div className="ml-52 flex flex-col">
           {loading ? (
             <Loading />
           ) : (
