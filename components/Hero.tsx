@@ -33,7 +33,7 @@ const contentVariants: Variants = {
 // opacity: [0, 0.5, 0.75, 1], y: [20, 0]
 export const Hero = () => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" id="hero">
       <div className="absolute -z-30 h-full w-full">
         <WaveCanvas />
       </div>

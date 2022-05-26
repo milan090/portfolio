@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           color: "white"
         }
       }} />
-      <div className="dark:text-slate-700">
+      <div className="text-slate-200">
         <Sidebar />
         <Social />
 
