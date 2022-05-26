@@ -61,10 +61,6 @@ const EthModels = () => {
     }
   })
 
-  useEffect(() => {
-    console.log(isHovered)
-  }, [isHovered])
-
   return (
     <>
       <group position={[0, 2, 0]}>
@@ -72,7 +68,6 @@ const EthModels = () => {
           ref={ref}
           position={[-30, 0, 0]}
           onClick={() => {
-            console.log('test')
             setIsHovered((h) => !h)
           }}
           whileHover={{ scale: 1.1 }}

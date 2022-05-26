@@ -44,10 +44,10 @@ export const Contact = () => {
   }, [control, inView])
 
   useEffect(() => {
-    console.log('Copied:', copied)
+    
     if (copied) {
       const timeout = setTimeout(() => {
-        console.log(false)
+        
         setCopied(false)
       }, 2500)
 
