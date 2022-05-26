@@ -37,7 +37,7 @@ export const Hero = () => {
       <div className="absolute -z-30 h-full w-full">
         <WaveCanvas />
       </div>
-      <div className="mx-32 flex min-h-screen pt-72">
+      <div className="mx-32 flex min-h-screen pt-32">
         <motion.div className="max-w-lg" initial={false}>
           <p className="font-mono text-2xl text-primary-600">
             <Typed strings={['Hey there! I am']} typeSpeed={36} />
