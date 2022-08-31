@@ -52,34 +52,26 @@ export const SkillsTagSphere: React.FC = () => {
 
   useEffect(() => {
     const width = ref.current?.clientWidth as number
-
     setRadius(width / 2)
-  }, [])
-
-  useEffect(() => {
-    console.log(radius)
-  }, [radius])
-
-  useEffect(() => {
-    const width = ref.current?.clientWidth as number
-    setRadius(width / 2)
+    console.log(width / 2);
   }, [ref.current?.clientWidth])
 
   return (
-    <div className="mx-auto text-primary-500 max-w-full flex justify-center" ref={ref}>
+    <div className="mx-auto text-primary-500 max-w-full w-full flex ustify-center" ref={ref}>
       <TagSphere
         style={{
           fontFamily: 'sans-serif',
           fontSize: '1.25rem',
           fontWeight: 'bolder',
+          width: '100%',
         }}
-        radius={radius}
+        // radius={radius}
         tags={tags}
         blurMultiplier={0.4}
         grayscale={false}
         fullHeight={true}
         fullWidth={true}
-
+        keepRollingAfterMouseOut={true}
       />
     </div>
   )
