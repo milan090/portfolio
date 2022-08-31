@@ -41,14 +41,15 @@ export const Skills = () => {
   }, [control, inView])
 
   return (
-    <div className="mx-20 flex min-h-screen items-center justify-around" id="skills">
-      <div className="max-w-lg pb-32" >
+    <div
+      className="mx-4 grid min-h-screen items-center gap-x-5 lg:mx-20 lg:grid-cols-2 mt-10 md:mt-0"
+      id="skills"
+      ref={ref}
+    >
+      <div className="mx-auto max-w-xl">
         {/* <p className="font-mono text-primary-600">Hi, my name is</p> */}
 
-        <div
-          className="h-20 overflow-hidden text-6xl font-bold capitalize"
-          ref={ref}
-        >
+        <div className="h-20 overflow-hidden text-6xl font-bold capitalize">
           <motion.h1
             variants={titleVariants}
             initial="hidden"
@@ -65,7 +66,7 @@ export const Skills = () => {
             initial="hidden"
             animate={control}
             transition={transition}
-            className="text-slate-400 "
+            className="text-slate-400 text-xl"
           >
             I am a fast learner and always upto date with latest technology.
             Even though I do this, I make sure to choose my tech wisely. Instead

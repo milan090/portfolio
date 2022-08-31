@@ -57,7 +57,7 @@ export const Contact = () => {
 
   return (
     <div
-      className="relative flex flex-col items-center justify-center pt-10 pb-60"
+      className="relative flex flex-col items-center justify-center pt-10 pb-60 mx-6 lg:mx-0"
       id="contact"
     >
       <div className="absolute h-full w-full">
@@ -65,7 +65,7 @@ export const Contact = () => {
       </div>
       <div className="z-10 flex flex-col items-center justify-center">
         <div
-          className="h-20 overflow-hidden text-center text-6xl font-bold capitalize"
+          className="h-14 lg:h-20 overflow-hidden text-center text-5xl lg:text-6xl font-bold capitalize"
           ref={ref}
           id="skills"
         >

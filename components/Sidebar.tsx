@@ -6,9 +6,9 @@ import React, { useEffect, useMemo, useState } from 'react'
 
 const variants = {
   visible: { x: 0 },
-  hidden: { x: -208 },
+  hidden: { x: -300 },
 }
-const transition: Transition = { delay: 2, duration: 0.7, ease: 'easeIn' }
+const transition: Transition = { delay: 2, duration: 0.9, ease: 'easeIn' }
 
 export const Sidebar = () => {
   return (
@@ -17,7 +17,7 @@ export const Sidebar = () => {
       variants={variants}
       animate={'visible'}
       transition={transition}
-      className="fixed flex h-full w-52 flex-col bg-slate-800"
+      className="sticky top-0 hidden lg:flex h-screen w-[14rem] flex-col bg-slate-800"
     >
       <div className="mt-5 flex flex-col items-center justify-center">
         <Link href="/">

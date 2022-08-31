@@ -101,10 +101,13 @@ export const Projects = () => {
   }, [projectsControl, projectsInView])
 
   return (
-    <div id="projects" className="mx-20 mt-10 flex min-h-screen flex-col mb-10" ref={ref}>
+    <div
+      id="projects"
+      className="mx-6 mt-10 mb-10 flex min-h-screen flex-col lg:mx-20"
+      ref={ref}
+    >
       <div
-        className="h-20 overflow-hidden text-center text-6xl font-bold capitalize"
-        
+        className="h-20 overflow-hidden text-center text-4xl font-bold capitalize lg:text-6xl"
         id="skills"
       >
         <motion.h1
@@ -122,7 +125,7 @@ export const Projects = () => {
         initial="hidden"
         animate={projectsControl}
         ref={projtectsRef}
-        className="mt-12 flex flex-wrap justify-center gap-10"
+        className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3"
       >
         {projectsData.map((props, i) => (
           <ProjectCard {...props} key={i} />
@@ -148,7 +151,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       variants={projectVariants}
-      className="overflow-clip rounded-md shadow-2xl"
+      className="overflow-clip rounded-md shadow-2xl w-full"
     >
       <div className="flex justify-between bg-slate-800 py-1 px-2 text-xs">
         <span className="font-bold uppercase tracking-wider text-slate-300">
@@ -160,7 +163,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <span className="h-1 w-1 rounded-full bg-red-400 p-1" />
         </div>
       </div>
-      <div className=" group relative h-60 w-96 cursor-pointer rounded-md">
+      <div className="group relative h-60 w-full cursor-pointer rounded-md">
         <Image
           src={img}
           alt={name}

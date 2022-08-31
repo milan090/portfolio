@@ -9,6 +9,7 @@ import { SEO } from '../utils/seo'
 import { DefaultSeo } from 'next-seo'
 import { Social } from '../components/Social'
 import { Toaster } from 'react-hot-toast'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -33,6 +34,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="dark">
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <DefaultSeo
         title={pageProps?.seo?.title || SEO.DEFAULT_TITLE}
         titleTemplate={SEO.DEFAULT_TITLE_TEMPLATE}
@@ -64,18 +70,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         ]}
       />
-      <Toaster position='bottom-right' toastOptions={{
-        className: "bg-slate-700 text-slate-200",
-        style: {
-          background: "#334155",
-          color: "white"
-        }
-      }} />
-      <div className="text-slate-200">
+
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          className: 'bg-slate-700 text-slate-200',
+          style: {
+            background: '#334155',
+            color: 'white',
+          },
+        }}
+      />
+      <div className="flex text-slate-200">
         <Sidebar />
         <Social />
 
-        <div className="ml-52 flex flex-col">
+        <div className="flex flex-col w-full">
           {loading ? (
             <Loading />
           ) : (

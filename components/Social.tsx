@@ -11,19 +11,19 @@ const lineVariants: Variants = {
     transition: {
       duration: 0.5,
       ease: 'easeInOut',
-      delay: 2.25,
+      delay: 2,
     },
   },
 }
 
-const socialsVariants: Variants = {
+const socialsContainerVariants: Variants = {
   hidden: {
     opacity: 1,
   },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 2,
+      delayChildren: 2.1,
       staggerChildren: 0.15,
     },
   },
@@ -38,54 +38,54 @@ const socialVariants: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      ease: 'easeOut',
+      ease: 'easeInOut',
     },
   },
 }
 
 export const Social = () => {
   return (
-    <div className="fixed  right-10 z-10 flex flex-col items-center justify-center gap-y-6">
+    <div className="fixed  right-4 z-10 flex flex-col items-center justify-center gap-y-6 lg:right-10">
       <motion.div
-        className="h-20 border-l-2 border-l-slate-600"
+        className="h-10 border-l-2 border-l-slate-600 lg:h-20"
         variants={lineVariants}
         animate="visible"
         initial="hidden"
       />
       <motion.div
         className="flex flex-col gap-y-6"
-        variants={socialsVariants}
+        variants={socialsContainerVariants}
         animate="visible"
         initial="hidden"
       >
-        <motion.a
-          variants={socialVariants}
-          href="http://twitter.com/itsmilan090"
-          target="_blank"
-          className="w-5 cursor-pointer fill-slate-500 transition duration-100 ease-in hover:-translate-y-0.5 hover:fill-primary-600"
-        >
+        <SocialLink href="http://twitter.com/itsmilan090">
           <TwitterIcon />
-        </motion.a>
-        <motion.a
-          variants={socialVariants}
-          href="http://github.com/milan090"
-          target="_blank"
-          className="w-5 cursor-pointer fill-slate-500 transition duration-100 ease-in hover:-translate-y-0.5 hover:fill-primary-600"
-        >
+        </SocialLink>
+        <SocialLink href="http://github.com/milan090">
           <GithubIcon />
-        </motion.a>
-        <motion.a
-          variants={socialVariants}
-          href="https://www.instagram.com/codingdeck/"
-          target="_blank"
-          className="w-5 cursor-pointer fill-slate-500 transition duration-100 ease-in hover:-translate-y-0.5 hover:fill-primary-600"
-        >
+        </SocialLink>
+        <SocialLink href="https://www.instagram.com/codingdeck/">
           <InstagramIcon />
-        </motion.a>
+        </SocialLink>
       </motion.div>
     </div>
   )
 }
+
+const SocialLink: React.FC<{ children: React.ReactNode; href: string }> = ({
+  href,
+  children,
+}) => (
+  <motion.a
+    variants={socialVariants}
+    href={href}
+    target="_blank"
+    className="w-5 cursor-pointer fill-slate-500 transition duration-100 ease-in  hover:fill-primary-600"
+    whileHover={{ y: -2, transition: { duration: 0.1 } }}
+  >
+    {children}
+  </motion.a>
+)
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 256 256" version="1.1" preserveAspectRatio="xMidYMid">

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import { TagSphere } from 'react-tag-sphere'
 import { shuffleArray } from '../utils/array'
 
@@ -23,7 +23,9 @@ const skillImageUrls = [
 ]
 
 const imageTags = skillImageUrls.map((url) => (
-  <Image src={url} width={'50px'} height={'50px'} />
+  <div className="w-6 lg:w-12">
+    <Image src={url} width={'50px'} height={'50px'} />
+  </div>
 )) as ReactNode[]
 
 const textTags = [
@@ -37,25 +39,47 @@ const textTags = [
   'Digital Marketing',
   'AWS',
   'Solidity',
-  "ThreeJS",
-  "OpenGL",
-  "GLSL"
-]
+  'ThreeJS',
+  'OpenGL',
+  'GLSL',
+].map((tag) => <p className='text-sm lg:text-lg'>{tag}</p>)
 
 const tags = shuffleArray(imageTags.concat(textTags))
 
 export const SkillsTagSphere: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [radius, setRadius] = useState(200)
+
+  useEffect(() => {
+    const width = ref.current?.clientWidth as number
+
+    setRadius(width / 2)
+  }, [])
+
+  useEffect(() => {
+    console.log(radius)
+  }, [radius])
+
+  useEffect(() => {
+    const width = ref.current?.clientWidth as number
+    setRadius(width / 2)
+  }, [ref.current?.clientWidth])
+
   return (
-    <div className="text-primary-500">
+    <div className="mx-auto text-primary-500 max-w-full flex justify-center" ref={ref}>
       <TagSphere
         style={{
           fontFamily: 'sans-serif',
           fontSize: '1.25rem',
           fontWeight: 'bolder',
         }}
+        radius={radius}
         tags={tags}
         blurMultiplier={0.4}
         grayscale={false}
+        fullHeight={true}
+        fullWidth={true}
+
       />
     </div>
   )
