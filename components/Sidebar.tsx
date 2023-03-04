@@ -39,6 +39,8 @@ export const Sidebar = () => {
         <NavLink href="#skills">Skills</NavLink>
         <NavLink href="#projects">Projects</NavLink>
         <NavLink href="#contact">Contact</NavLink>
+        <a  className="w-40 mt-8 px-4 py-3 text-center font-medium border border-slate-600   duration-150 ease-in-out rounded-md text-slate-400 hover:text-slate-200 hover:border-slate-400"
+         href="https://drive.google.com/file/d/14kQmnBUWJQeLl814zrFCrex-kEO7dPr3/view?usp=share_link" target="_blank">~/Resume</a>
       </div>
     </motion.div>
   )
