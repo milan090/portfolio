@@ -40,11 +40,10 @@ const projectVariants: Variants = {
 
 const projectsData: ProjectCardProps[] = [
   {
-    name: 'ZeroToChad',
-    img: '/img/projects/ztc.png',
-    description:
-      'Your all-in-one self improvement app. Become the best version of yourself!',
-    link: 'http://zero-to-chad.vercel.app/',
+    name: 'Stoicism',
+    img: '/img/projects/stoicism.gif',
+    description: 'Played around with ThreeJS and React to create this',
+    link: 'https://stoicism.vercel.app/',
   },
   {
     name: 'Ency',
@@ -59,6 +58,20 @@ const projectsData: ProjectCardProps[] = [
     description:
       'Learning Physics by Visualising - the fastest, easiest, and retainable way of learning Physics',
     link: 'https://physics-lab.vercel.app/',
+  },
+
+  {
+    name: 'ZeroToChad',
+    img: '/img/projects/ztc.png',
+    description:
+      'Your all-in-one self improvement app. Become the best version of yourself!',
+    link: 'http://zero-to-chad.vercel.app/',
+  },
+  {
+    name: 'ElusidateAI',
+    img: '/img/projects/elusidate.png',
+    description: 'Summarize CSV data into meaningful charts and explanations',
+    link: 'https://elusidate.app/',
   },
   {
     name: 'Describe-It',
@@ -125,7 +138,7 @@ export const Projects = () => {
         initial="hidden"
         animate={projectsControl}
         ref={projtectsRef}
-        className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3"
+        className="mt-12 grid place-items-center gap-10 md:grid-cols-2 lg:grid-cols-3"
       >
         {projectsData.map((props, i) => (
           <ProjectCard {...props} key={i} />
@@ -151,7 +164,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       variants={projectVariants}
-      className="overflow-clip rounded-md shadow-2xl w-full"
+      className="w-full overflow-clip rounded-md shadow-2xl"
     >
       <div className="flex justify-between bg-slate-800 py-1 px-2 text-xs">
         <span className="font-bold uppercase tracking-wider text-slate-300">

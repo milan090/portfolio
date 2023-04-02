@@ -8,7 +8,7 @@ const skillImageUrls = [
   'https://cdn.svgporn.com/logos/python.svg',
   'https://cdn.svgporn.com/logos/react.svg',
   'https://cdn.svgporn.com/logos/nodejs-icon.svg',
-  'https://cdn.svgporn.com/logos/prisma.svg',
+  '/img/prisma.svg',
   'https://cdn.svgporn.com/logos/docker-icon.svg',
   'https://cdn.svgporn.com/logos/figma.svg',
   'https://cdn.svgporn.com/logos/tailwindcss-icon.svg',
@@ -20,6 +20,8 @@ const skillImageUrls = [
   'https://cdn.svgporn.com/logos/redux.svg',
   'https://cdn.svgporn.com/logos/django-icon.svg',
   'https://cdn.svgporn.com/logos/web3js.svg',
+  '/img/t3.png',
+  '/img/rust.svg'
 ]
 
 const imageTags = skillImageUrls.map((url) => (
